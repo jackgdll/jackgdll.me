@@ -30,14 +30,14 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Build
+        run: pnpm build
+
       - name: Lint
         run: pnpm lint
 
       - name: Check
         run: pnpm check
-
-      - name: Build
-        run: pnpm build
 
       - name: Upload static files as artifact
         id: deployment
