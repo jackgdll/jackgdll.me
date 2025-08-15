@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs';
-import type { Plugin } from 'vite';
+import type { Plugin, ViteDevServer } from 'vite';
 
 export function generateIconsPlugin({
 	dir = 'src/lib/assets/icons'
@@ -19,6 +19,13 @@ export function generateIconsPlugin({
 		console.log(`✅ icons.ts generated with ${files.length} icons`);
 	}
 
+	function bustCache(server: ViteDevServer) {
+		const module = server.moduleGraph.getModuleById(outputFile);
+		if (module) {
+			server.reloadModule(module);
+		}
+	}
+
 	return {
 		name: 'generate-icons',
 		buildStart() {
@@ -29,11 +36,13 @@ export function generateIconsPlugin({
 			server.watcher.on('add', (filePath) => {
 				if (filePath.startsWith(iconsDir) && filePath.endsWith('.svg')) {
 					generateFile();
+					bustCache(server);
 				}
 			});
 			server.watcher.on('unlink', (filePath) => {
 				if (filePath.startsWith(iconsDir) && filePath.endsWith('.svg')) {
 					generateFile();
+					bustCache(server);
 				}
 			});
 		}
