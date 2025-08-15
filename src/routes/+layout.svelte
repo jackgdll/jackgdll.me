@@ -11,6 +11,7 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+	<title>jack goodall</title>
 </svelte:head>
 
 <ThemeContext>

@@ -2,7 +2,7 @@
 	import CustomCursor from '$lib/components/custom-cursor.svelte';
 </script>
 
-<header class="flex items-center gap-4">
+<header class="flex items-center gap-4 lowercase">
 	<CustomCursor cursor="🥸" class="my-8">
 		<img
 			src="https://avatars.githubusercontent.com/u/55743301"
