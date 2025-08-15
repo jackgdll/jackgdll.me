@@ -11,7 +11,7 @@
 	<p class="mb-0 inline-flex items-center gap-2">
 		{#each links as link, i (link.href)}
 			<a href={link.href}>
-				<Icon icon={link.icon} alt={link.label} size="1.5rem" />
+				<Icon icon={link.icon} desc={link.label} size="1.5rem" />
 			</a>
 			{#if i < links.length - 1}
 				<span class="text-xs">⚫︎</span>

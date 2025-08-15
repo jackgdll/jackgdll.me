@@ -3,6 +3,8 @@
 	import '@fontsource/aldrich';
 	import favicon from '$lib/assets/favicon.svg';
 	import Footer from './footer.svelte';
+	import ThemeSwitcher from '$lib/components/theme-switcher.svelte';
+	import ThemeContext from '$lib/contexts/theme-context.svelte';
 
 	let { children } = $props();
 </script>
@@ -11,7 +13,11 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<section class="mx-auto prose mt-8">
-	{@render children?.()}
-	<Footer />
-</section>
+<ThemeContext>
+	<ThemeSwitcher class="fixed top-4 right-4 z-50" />
+
+	<section class="mx-auto mt-8 w-2xl px-8">
+		{@render children?.()}
+		<Footer />
+	</section>
+</ThemeContext>

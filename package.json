@@ -39,7 +39,8 @@
 	},
 	"dependencies": {
 		"@fontsource/aldrich": "^5.2.6",
-		"@inlang/paraglide-js": "^2.0.0"
+		"@inlang/paraglide-js": "^2.0.0",
+		"runed": "^0.31.1"
 	},
 	"pnpm": {
 		"onlyBuiltDependencies": [
