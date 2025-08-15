@@ -1,7 +1,12 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
 
-	const { cursor, children }: { cursor: string | Snippet; children: Snippet } = $props();
+	interface Props extends HTMLAttributes<HTMLDivElement> {
+		cursor: string | Snippet;
+		children?: Snippet;
+	}
+	const { cursor, children, ...restProps }: Props = $props();
 
 	let show = $state(false);
 	let cursorPosition: { x: number; y: number } | null = $state(null);
@@ -17,6 +22,7 @@
 	onmouseenter={() => (show = true)}
 	onmouseleave={() => (show = false)}
 	onmousemovecapture={onmousemove}
+	{...restProps}
 >
 	{@render children?.()}
 </div>
