@@ -4,7 +4,7 @@
 
 	const theme = themeContext.get();
 
-	const { class: className }: { class?: string } = $props();
+	const { class: clazz }: { class?: string } = $props();
 
 	function getNextTheme(current: Theme): Theme {
 		return themes[(themes.indexOf(current) + 1) % themes.length];
@@ -19,7 +19,7 @@
 
 <button
 	onclick={() => (theme.current = getNextTheme(theme.current))}
-	class={['cursor-pointer rounded border border-gray-400 p-2', className]}
+	class={['cursor-pointer rounded border border-gray-400 p-2', clazz]}
 >
 	<Icon icon={iconMap[theme.current]} size="1.5rem" />
 </button>

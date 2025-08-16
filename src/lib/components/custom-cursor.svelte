@@ -6,7 +6,7 @@
 		cursor: string | Snippet;
 		children?: Snippet;
 	}
-	const { cursor, children, ...restProps }: Props = $props();
+	const { cursor, class: clazz, children, ...restProps }: Props = $props();
 
 	let show = $state(false);
 	let cursorPosition: { x: number; y: number } | null = $state(null);
@@ -19,9 +19,10 @@
 
 <div
 	role="region"
-	onmouseenter={() => (show = true)}
-	onmouseleave={() => (show = false)}
+	onpointerenter={() => (show = true)}
+	onpointerleave={() => (show = false)}
 	onmousemovecapture={onmousemove}
+	class={[{ 'cursor-none': show }, clazz]}
 	{...restProps}
 >
 	{@render children?.()}
@@ -29,7 +30,7 @@
 
 {#if show}
 	<div
-		class="pointer-events-none fixed z-50 -translate-1/2"
+		class={['fixed z-50 -translate-1/2', { 'pointer-events-none': show }]}
 		style:top="{cursorPosition?.y}px"
 		style:left="{cursorPosition?.x}px"
 	>

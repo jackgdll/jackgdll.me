@@ -17,7 +17,7 @@
 <ThemeContext>
 	<ThemeSwitcher class="fixed top-4 right-4 z-50" />
 
-	<section class="mx-auto mt-8 w-2xl px-8">
+	<section class="mx-auto mt-8 w-2xl max-w-screen px-8">
 		{@render children?.()}
 		<Footer />
 	</section>
