@@ -11,7 +11,8 @@
 	import { useEventListener, PersistedState } from 'runed';
 	import type { Snippet } from 'svelte';
 
-	const { children }: { children?: Snippet } = $props();
+	let { dark = $bindable(), children }: { dark?: boolean | undefined; children?: Snippet } =
+		$props();
 
 	const theme = new PersistedState<Theme>('theme', 'system');
 
@@ -39,8 +40,10 @@
 	$effect(() => {
 		if (isDark) {
 			document.documentElement.setAttribute('data-theme', 'dark');
+			dark = true;
 		} else {
 			document.documentElement.removeAttribute('data-theme');
+			dark = false;
 		}
 	});
 
