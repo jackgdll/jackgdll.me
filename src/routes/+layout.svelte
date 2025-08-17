@@ -1,19 +1,18 @@
 <script lang="ts">
 	import '../app.css';
 	import '@fontsource/aldrich';
-	import faviconLight from '$lib/assets/favicon-light.svg';
-	import faviconDark from '$lib/assets/favicon-dark.svg';
 	import ThemeSwitcher from '$lib/components/theme-switcher.svelte';
 	import ThemeContext from '$lib/contexts/theme-context.svelte';
 	import Socials from '$lib/components/socials.svelte';
+	import Favicon from './favicon.svelte';
 
 	let { children } = $props();
 
-	let dark = $state<boolean>();
+	let dark = $state(false);
 </script>
 
 <svelte:head>
-	<link rel="icon" href={dark ? faviconDark : faviconLight} />
+	<Favicon {dark} />
 	<title>jack goodall</title>
 </svelte:head>
 
@@ -27,7 +26,7 @@
 			<Socials />
 
 			<p>
-				&copy; {new Date().getFullYear()} Jack Goodall.
+				&copy; {new Date().getFullYear()} Jack Goodall
 			</p>
 		</footer>
 	</section>

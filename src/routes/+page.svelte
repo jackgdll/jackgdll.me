@@ -33,26 +33,21 @@
 		{#each await getPosts() as item (item.guid)}
 			{@const url = new URL(item.link)}
 			{@const external = url.host !== page.url.host}
-			{@const linkAttrs = {
-				href: item.link,
-				target: external ? '_blank' : undefined,
-				rel: external ? 'noopener noreferrer' : undefined
-			}}
 
 			<li
-				class="my-3 flex flex-col gap-4 rounded border border-slate-300 p-2 sm:flex-row dark:border-slate-700"
+				class="my-3 flex flex-col gap-4 rounded border-slate-300 bg-neutral-50 p-2 shadow-sm sm:flex-row dark:bg-zinc-950"
 			>
-				<a {...linkAttrs} class="flex-shrink-0">
+				<a href={item.link} class="flex-shrink-0">
 					<img {...item.thumbnail} alt={item.title} class="w-full rounded-md sm:max-w-70" />
 				</a>
 
 				<div class="flex flex-col py-1">
-					<a {...linkAttrs} class="hover:underline">
+					<a href={item.link} class="group hover:underline">
 						{item.title}
 						{#if external}
 							<Icon
 								icon="arrow-up-right-square"
-								class="mb-0.5 inline-block align-middle text-gray-700 dark:text-gray-300"
+								class="mb-0.5 inline-block align-middle text-gray-700 group-hover:text-inherit dark:text-gray-300"
 								size="0.75rem"
 								desc="External link"
 							/>
