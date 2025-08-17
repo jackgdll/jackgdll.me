@@ -6,11 +6,11 @@
 
 	interface Props {
 		icon: Icon;
-		color?: string;
 		size?: string;
 		desc?: string;
+		class?: string;
 	}
-	const { icon, size = '1rem', color = 'currentColor', desc }: Props = $props();
+	const { icon, size = '1rem', desc, class: clazz }: Props = $props();
 
 	const hasDarkVariant = $derived(icons.includes((icon + '-dark') as Icon));
 	const iconName = $derived(theme.isDark && hasDarkVariant ? `${icon}-dark` : icon);
@@ -37,7 +37,7 @@
 <svelte:boundary>
 	{#snippet pending()}{/snippet}
 
-	<span class="icon" style:--icon-size={size} style:color>
+	<span class={['icon', clazz]} style:--icon-size={size}>
 		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 		{@html await loadSvg()}
 	</span>

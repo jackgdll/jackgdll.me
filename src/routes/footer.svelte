@@ -7,14 +7,14 @@
 	] as const;
 </script>
 
-<footer class="mt-15 text-right text-gray-400">
+<footer class="mt-15 mb-7 text-right text-gray-400">
 	<p class="mb-0 inline-flex items-center gap-2">
 		{#each links as link, i (link.href)}
 			<a href={link.href}>
 				<Icon icon={link.icon} desc={link.label} size="1.5rem" />
 			</a>
 			{#if i < links.length - 1}
-				<span class="text-xs">⚫︎</span>
+				<span class="text-xs">·</span>
 			{/if}
 		{/each}
 	</p>

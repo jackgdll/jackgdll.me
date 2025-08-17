@@ -20,7 +20,7 @@
 <ThemeContext bind:dark>
 	<ThemeSwitcher class="fixed top-4 right-4 z-50" />
 
-	<section class="mx-auto mt-8 w-2xl max-w-screen px-8">
+	<section class="mx-auto mt-8 w-3xl max-w-screen px-4">
 		{@render children?.()}
 		<Footer />
 	</section>
