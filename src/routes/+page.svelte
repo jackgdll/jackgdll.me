@@ -40,7 +40,7 @@
 			}}
 
 			<li
-				class="my-2 flex flex-col gap-4 rounded border border-slate-300 p-2 sm:flex-row dark:border-slate-700"
+				class="my-3 flex flex-col gap-4 rounded border border-slate-300 p-2 sm:flex-row dark:border-slate-700"
 			>
 				<a {...linkAttrs} class="flex-shrink-0">
 					<img {...item.thumbnail} alt={item.title} class="w-full rounded-md sm:max-w-70" />
@@ -54,6 +54,7 @@
 								icon="arrow-up-right-square"
 								class="mb-0.5 inline-block align-middle text-gray-700 dark:text-gray-300"
 								size="0.75rem"
+								desc="External link"
 							/>
 						{/if}
 					</a><br />
