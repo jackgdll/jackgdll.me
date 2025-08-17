@@ -3,9 +3,9 @@
 	import '@fontsource/aldrich';
 	import faviconLight from '$lib/assets/favicon-light.svg';
 	import faviconDark from '$lib/assets/favicon-dark.svg';
-	import Footer from './footer.svelte';
 	import ThemeSwitcher from '$lib/components/theme-switcher.svelte';
 	import ThemeContext from '$lib/contexts/theme-context.svelte';
+	import Socials from '$lib/components/socials.svelte';
 
 	let { children } = $props();
 
@@ -22,6 +22,13 @@
 
 	<section class="mx-auto mt-8 w-3xl max-w-screen px-4">
 		{@render children?.()}
-		<Footer />
+
+		<footer class="mt-15 mb-7 text-right text-gray-400">
+			<Socials />
+
+			<p>
+				&copy; {new Date().getFullYear()} Jack Goodall.
+			</p>
+		</footer>
 	</section>
 </ThemeContext>

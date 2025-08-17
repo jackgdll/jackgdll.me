@@ -2,6 +2,7 @@
 	import { page } from '$app/state';
 	import CustomCursor from '$lib/components/custom-cursor.svelte';
 	import Icon from '$lib/components/icon.svelte';
+	import Socials from '$lib/components/socials.svelte';
 	import { getPosts } from './getPosts.remote';
 </script>
 
@@ -15,7 +16,10 @@
 			class="aspect-square w-30 min-w-18 rounded-md"
 		/>
 	</CustomCursor>
-	<h1 class="mb-2 text-3xl sm:mb-0">Jack Goodall</h1>
+	<div class="mb-2 flex flex-1 items-center gap-4 sm:mb-0">
+		<h1 class="mr-auto text-3xl">Jack Goodall</h1>
+		<Socials class="mb-1" />
+	</div>
 </header>
 <p class="prose mt-0 mb-8 dark:prose-invert">
 	Software engineer based in Lyon, France. <br />
