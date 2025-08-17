@@ -12,7 +12,6 @@ export type Post = {
 	thumbnail: Record<string, string | undefined>;
 };
 
-const EXCLUDED_DW_POSTS = ['/blog/jack-goodall-datawrapper-new-hire'];
 const DW_BLOG_BASE_URL = 'https://www.datawrapper.de/blog';
 const DW_BLOG_POSTS_URL = `${DW_BLOG_BASE_URL}/posts/`;
 const DW_BLOG_FEED_URL = `${DW_BLOG_BASE_URL}/feed/`;
@@ -47,11 +46,9 @@ async function getPostMeta(): Promise<Pick<Post, 'guid' | 'thumbnail'>[]> {
 
 	const html = await response.text();
 	const $ = cheerio.load(html);
-	const posts = $('.post:contains("Jack")')
-		.map(function () {
-			return $(this).find('a').first();
-		})
-		.filter((_, el) => !EXCLUDED_DW_POSTS.includes(el.attr('href') || ''));
+	const posts = $('.post:has(.post__meta:contains("Jack Goodall"))').map((_, el) =>
+		$(el).find('a').first()
+	);
 
 	const guids = posts
 		.map((_, el) => el.attr('href'))
