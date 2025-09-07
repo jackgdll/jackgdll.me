@@ -40,12 +40,14 @@
 			<li
 				class="my-3 flex flex-col gap-4 rounded border-slate-300 bg-neutral-50 p-2 shadow-sm sm:flex-row dark:bg-zinc-950"
 			>
-				<a href={item.link} class="flex-shrink-0">
+				<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
+				<a href={item.link} rel="noopener" class="flex-shrink-0">
 					<img {...item.thumbnail} alt={item.title} class="w-full rounded-md sm:max-w-70" />
 				</a>
 
 				<div class="flex flex-col py-1">
-					<a href={item.link} class="group hover:underline">
+					<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
+					<a href={item.link} rel="noopener" class="group hover:underline">
 						{item.title}
 						{#if external}
 							<Icon

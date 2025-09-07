@@ -11,6 +11,7 @@
 
 <p class={['mb-0 inline-flex items-center gap-2', clazz]}>
 	{#each links as link, i (link.href)}
+		<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
 		<a href={link.href}>
 			<Icon icon={link.icon} desc={link.label} size="1.5rem" />
 		</a>
