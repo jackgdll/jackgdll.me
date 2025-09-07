@@ -3,6 +3,7 @@
 	import CustomCursor from '$lib/components/custom-cursor.svelte';
 	import Icon from '$lib/components/icon.svelte';
 	import Socials from '$lib/components/socials.svelte';
+	import Backdrop from './backdrop.svelte';
 	import { getPosts } from './getPosts.remote';
 </script>
 
@@ -25,6 +26,8 @@
 	Software engineer based in Lyon, France. <br />
 	<a href="https://www.datawrapper.de">@Datawrapper</a> since 2023.
 </p>
+
+<Backdrop />
 
 <h2 class="text-xl">Posts</h2>
 <ul>
