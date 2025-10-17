@@ -18,7 +18,7 @@
 	const maxEle = Math.max(...elevations);
 </script>
 
-<script>
+<script lang="ts">
 	import { themeContext } from '$lib/contexts/theme-context.svelte';
 	import { useEventListener } from 'runed';
 	import { browser } from '$app/environment';
